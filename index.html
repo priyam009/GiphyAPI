@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Giphy API</title>
+
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Abril+Fatface|Anton|Fascinate|Open+Sans:300i|Roboto:300i|Russo+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://kit.fontawesome.com/f1172acf77.js"></script>
+  </head>
+
+  <body class="bg-color">
+    <header>
+      <nav class="container navbar bg-color p-0">
+          <img
+          src="https://media.giphy.com/avatars/default3.gif"
+          width="40"
+          height="40"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        <a class="navbar-brand text-light heading-content p-0" href="#">
+          <h3 class="mb-0">GIFme GIPHY</h3>
+        </a>
+      </nav>
+    </header>
+
+    <section>
+      <div class="container mt-4">
+        <form class="">
+          <div class="row">
+            <div class="col-md-11 p-0">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Add anything Football"
+              />
+            </div>
+            <div class="col-md-1 pr-0 text-right">
+              <button
+                id="submit-button"
+                type="button"
+                class="btn btn-secondary search-button"
+              >
+                <i class="fas fa-angle-double-down blinking"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card container p-0 mt-4 border">
+        <div class="card-header">
+          <p class="mb-0">Searched</p>
+        </div>
+        <div id="add-button" class="m-2">
+          <!-- <button>Arsenal</button>
+          <button>EPL</button> -->
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript" src="./assets/javascript/app.js"></script>
+  </body>
+</html>

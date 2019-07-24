@@ -51,7 +51,7 @@
   <body class="bg-color">
     <header>
       <nav class="container navbar bg-color p-0">
-          <img
+        <img
           src="https://media.giphy.com/avatars/default3.gif"
           width="40"
           height="40"
@@ -66,39 +66,47 @@
 
     <section>
       <div class="container mt-4">
-        <form class="">
+        <form role="form" class="topic-form">
+          
           <div class="row">
-            <div class="col-md-11 p-0">
+            <div class="form-group col-md-11 p-0">
               <input
+                id="topic-input"
                 type="text"
                 class="form-control"
                 placeholder="Add anything Football"
               />
             </div>
+
             <div class="col-md-1 pr-0 text-right">
               <button
                 id="submit-button"
-                type="button"
-                class="btn btn-secondary search-button"
+                type="submit"
+                class="btn btn-secondary search-content"
               >
-                <i class="fas fa-angle-double-down blinking"></i>
+                <i class="fas fa-plus blinking"></i>
               </button>
             </div>
+
           </div>
         </form>
       </div>
 
       <div class="card container p-0 mt-4 border">
         <div class="card-header">
-          <p class="mb-0">Searched</p>
+          <p class="mb-0">Added Topics</p>
         </div>
         <div id="add-button" class="m-2">
-          <!-- <button>Arsenal</button>
-          <button>EPL</button> -->
+
         </div>
+      </div>
+
+      <div id="add-gif" class="container mt-4 mb-4">
+
       </div>
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="./assets/javascript/app.js"></script>
   </body>
 </html>

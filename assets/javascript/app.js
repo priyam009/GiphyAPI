@@ -1,5 +1,5 @@
 //Array to add topics
-var topics = ["tom and jerry", "mickey mouse", "pikachu"];
+var topics = ["pikachu", "snorlax", "charmander"];
 
 //Buttons for initial example in array
 function renderButtons() {
@@ -60,7 +60,10 @@ function displayTopicGif() {
 function getURL(gifTopic, gifOffset, gifLimit) {
   var gifUrl = "https://api.giphy.com/v1/gifs/search?api_key=xlwTlWsHjqOnoRq5SnOLVMHw75qxIX2k&q=" + gifTopic + "&offset=" + gifOffset + "&limit=" + gifLimit;
 
+  var pokeUrl = "https://pokeapi.co/api/v2/pokemon/" + gifTopic;
+
   getGif(gifUrl);
+  getPoke(pokeUrl);
 }
 
 //Get button value when clicked
@@ -122,6 +125,42 @@ function getGif(gifUrl) {
     });
   });
 };
+
+function getPoke(pokeUrl) {
+  $.ajax({
+    url: pokeUrl,
+    method: "GET"
+  }).then(function(response) {
+
+    $("#pokeName-text").text(response.name.toUpperCase());
+
+    var capitalizeType = response.types[0].type.name.charAt(0).toUpperCase() + response.types[0].type.name.slice(1);
+
+    var pokeDetail = 
+    {"Pokedex Number": response.id,
+    "Type": capitalizeType, 
+    "Weight": response.weight/10 + " kg", 
+    "Height": response.height*10 + " cm",
+    };
+
+    $.each(pokeDetail, function(key, value) {
+      var type = $("<li>");
+      type.addClass("list-group-item");
+      type.text(key + ": " + value);
+
+      $("#detail-text").append(type);
+    });
+    
+    for(var i=0; i<4; i++) {
+      var list = $("<li>");
+      list.addClass("list-group-item");
+      list.text(response.stats[i].stat.name + ": " + response.stats[i].base_stat);
+
+      $("#stat-text").append(list);
+    }
+  });
+};
+
 
 $(document).ready(function() {
 

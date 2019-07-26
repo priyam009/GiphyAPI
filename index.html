@@ -7,7 +7,10 @@
 
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque|Fascinate|Karla|Rubik&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Darker+Grotesque|Fascinate|Karla|Rubik&display=swap"
+      rel="stylesheet"
+    />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -49,14 +52,14 @@
     <header>
       <nav class="container navbar bg-color p-0">
         <img
-          src="https://media.giphy.com/avatars/default3.gif"
-          width="40"
-          height="40"
+          src="https://media.giphy.com/media/sBboI8Q1YGQEM/giphy.gif"
+          width="100"
+          height="100"
           class="d-inline-block align-top"
           alt=""
         />
-        <a class="navbar-brand text-light heading-content p-0" href="#">
-          <h3 class="mb-0">GIFme GIPHY</h3>
+        <a class="text-light heading-content p-0" href="#">
+          <h3 class="mb-0">GIFme POKEMON</h3>
         </a>
       </nav>
     </header>
@@ -70,7 +73,7 @@
                 id="topic-input"
                 type="text"
                 class="form-control"
-                placeholder="Add anything Cartoon"
+                placeholder="Add any Pokemon"
               />
             </div>
 
@@ -87,28 +90,46 @@
         </form>
       </div>
 
-      
       <div class="card container p-0 mt-2 mb-4 border">
         <div class="card-header">
-          <p class="mb-0">Click Topics below to see GIFs</p>
+          <p class="mb-0">Click Pokemon below to see Stats and GIFs</p>
         </div>
         <div id="add-button" class="m-2"></div>
       </div>
-      
+
+      <div class="card container p-0 mt-2 mb-4 border">
+        <div class="card-header">
+          <h4 id="pokeName-text" class="mb-0 text-center"></h4>
+        </div>
+        <div class="row">
+          <div class="col-md-6 text-center pr-0">
+            <ul id="detail-text" class="card list-group list-group-flush">
+            </ul>
+          </div>
+
+          <div class="col-md-6 text-center pl-0">
+              <ul id="stat-text" class="card list-group list-group-flush">
+              </ul>
+          </div>
+        </div>
+      </div>
+
       <div class="container">
         <div class="row">
           <div class="col-md-6 p-0">
-            <button id="previous-page" class="btn btn-light">Previous Page</button>
+            <button id="previous-page" class="btn btn-light">
+              Previous Page
+            </button>
           </div>
           <div id="next-page" class="col-md-6 p-0 text-right">
-              <button class="btn btn-light">Next Page</button>
+            <button class="btn btn-light">Next Page</button>
           </div>
         </div>
       </div>
 
       <div id="add-gif" class="container mt-4 mb-4"></div>
     </section>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="./assets/javascript/app.js"></script>
   </body>

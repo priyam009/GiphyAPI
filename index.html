@@ -7,10 +7,7 @@
 
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Abril+Fatface|Anton|Fascinate|Open+Sans:300i|Roboto:300i|Russo+One&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque|Fascinate|Karla|Rubik&display=swap" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -67,14 +64,13 @@
     <section>
       <div class="container mt-4">
         <form role="form" class="topic-form">
-          
           <div class="row">
             <div class="form-group col-md-11 p-0">
               <input
                 id="topic-input"
                 type="text"
                 class="form-control"
-                placeholder="Add anything Football"
+                placeholder="Add anything Cartoon"
               />
             </div>
 
@@ -87,25 +83,32 @@
                 <i class="fas fa-plus blinking"></i>
               </button>
             </div>
-
           </div>
         </form>
       </div>
 
-      <div class="card container p-0 mt-4 border">
+      
+      <div class="card container p-0 mt-2 mb-4 border">
         <div class="card-header">
-          <p class="mb-0">Added Topics</p>
+          <p class="mb-0">Click Topics below to see GIFs</p>
         </div>
-        <div id="add-button" class="m-2">
-
+        <div id="add-button" class="m-2"></div>
+      </div>
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 p-0">
+            <button id="previous-page" class="btn btn-light">Previous Page</button>
+          </div>
+          <div id="next-page" class="col-md-6 p-0 text-right">
+              <button class="btn btn-light">Next Page</button>
+          </div>
         </div>
       </div>
 
-      <div id="add-gif" class="container mt-4 mb-4">
-
-      </div>
+      <div id="add-gif" class="container mt-4 mb-4"></div>
     </section>
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="./assets/javascript/app.js"></script>
   </body>

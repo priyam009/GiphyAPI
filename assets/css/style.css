@@ -3,24 +3,34 @@
 }
 
 .heading-content {
-  font-family: 'Fascinate', cursive;
-  font-size: 50px; 
+  font-family: "Fascinate", cursive;
+  font-size: 50px;
 }
 
-.blinking{
-  animation:blinkingText 1.5s infinite;
+.blinking {
+  animation: blinkingText 1.5s infinite;
   font-size: 23px;
 }
-@keyframes blinkingText{
-  0%{     color: #fff;    }
-  50%{    color: transparent; }
-  100%{   color: #fff;    }
+
+@keyframes blinkingText {
+  0% {
+    color: #fff;
+  }
+  50% {
+    color: transparent;
+  }
+  100% {
+    color: #fff;
+  }
 }
 
 .search-content {
   background-image: linear-gradient(
-    45deg, rgb(153, 51, 255) 0%, 
-    rgb(255, 102, 102) 50%, 
-    rgb(153, 51, 255) 100%);
+    45deg,
+    rgb(153, 51, 255) 0%,
+    rgb(255, 102, 102) 50%,
+    rgb(153, 51, 255) 100%
+  );
   background-size: 400%;
 }
+

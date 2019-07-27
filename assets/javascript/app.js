@@ -12,8 +12,7 @@ function renderButtons() {
     displayButton.text(topics[index]);
     $("#add-button").append(displayButton);
   }
-
-};
+}
 
 //Get value from the input field
 $("#submit-button").on("click", function(event) {
@@ -40,30 +39,91 @@ function displayTopicGif() {
   var gifLimit = 15;
 
   $("#previous-page").on("click", function() {
-    if(gifOffset !== 0) {
+    if (gifOffset !== 0) {
       gifOffset -= gifLimit;
       getURL(gifTopic, gifOffset, gifLimit);
-    };
+    }
   });
-  
+
   $("#next-page").on("click", function() {
     gifOffset += gifLimit;
     getURL(gifTopic, gifOffset, gifLimit);
   });
 
   getURL(gifTopic, gifOffset, gifLimit);
-};
-
-
+}
 
 //Return URL
 function getURL(gifTopic, gifOffset, gifLimit) {
-  var gifUrl = "https://api.giphy.com/v1/gifs/search?api_key=xlwTlWsHjqOnoRq5SnOLVMHw75qxIX2k&q=" + gifTopic + "&offset=" + gifOffset + "&limit=" + gifLimit;
+  var gifUrl =
+    "https://api.giphy.com/v1/gifs/search?api_key=xlwTlWsHjqOnoRq5SnOLVMHw75qxIX2k&q=" +
+    gifTopic +
+    "&offset=" +
+    gifOffset +
+    "&limit=" +
+    gifLimit;
 
   var pokeUrl = "https://pokeapi.co/api/v2/pokemon/" + gifTopic;
 
-  getGif(gifUrl);
-  getPoke(pokeUrl);
+  // getPoke(pokeUrl);
+
+  getPoke(pokeUrl, gifUrl)
+  
+
+};
+
+function errorPoki() {
+  $("#detail-text").empty();
+  $("#stat-text").empty();
+  $("#add-gif").empty();
+
+  $("#pokeName-text").text("Pokemon does not exist. Try Again!");
+}
+
+//get pokemon information from api
+function getPoke(pokeUrl, gifUrl) {
+  $.ajax({
+    url: pokeUrl,
+    method: "GET",
+    error: errorPoki
+  }).done(function(response) {
+    if (response.name) {
+      $("#pokeName-text").text(response.name.toUpperCase());
+
+      var capitalizeType =
+        response.types[0].type.name.charAt(0).toUpperCase() +
+        response.types[0].type.name.slice(1);
+
+      var pokeDetail = {
+        "Pokedex Number": response.id,
+        Type: capitalizeType,
+        Weight: response.weight / 10 + " kg",
+        Height: response.height * 10 + " cm"
+      };
+
+      $("#detail-text").empty();
+      $("#stat-text").empty();
+
+      $.each(pokeDetail, function(key, value) {
+        var type = $("<li>");
+        type.addClass("list-group-item");
+        type.text(key + ": " + value);
+
+        $("#detail-text").append(type);
+      });
+
+      for (var i = 0; i < 4; i++) {
+        var list = $("<li>");
+        list.addClass("list-group-item");
+        list.text(
+          response.stats[i].stat.name + ": " + response.stats[i].base_stat
+        );
+
+        $("#stat-text").append(list);
+      }
+      getGif(gifUrl);
+    }
+  });
 }
 
 //Get button value when clicked
@@ -72,7 +132,6 @@ function getGif(gifUrl) {
     url: gifUrl,
     method: "GET"
   }).then(function(response) {
-
     $("#add-gif").empty();
 
     for (var count = 0; count < 15; count++) {
@@ -91,8 +150,12 @@ function getGif(gifUrl) {
 
       displayImg.addClass("img-fluid");
       displayImg.addClass("gif");
+      displayImg.addClass("pointer");
 
-      displayImg.attr("data-still", response.data[count].images.original_still.url);
+      displayImg.attr(
+        "data-still",
+        response.data[count].images.original_still.url
+      );
       displayImg.attr("data-animate", response.data[count].images.original.url);
       displayImg.attr("data-state", "still");
 
@@ -111,8 +174,8 @@ function getGif(gifUrl) {
 
     $(".gif").on("click", function() {
       var stateValue = $(this).attr("data-state");
-      
-      if(stateValue === "still") {
+
+      if (stateValue === "still") {
         var stillState = $(this).attr("data-animate");
         $(this).attr("src", stillState);
         $(this).attr("data-state", "animate");
@@ -120,55 +183,15 @@ function getGif(gifUrl) {
         var animateState = $(this).attr("data-still");
         $(this).attr("src", animateState);
         $(this).attr("data-state", "still");
-      };
-
+      }
     });
   });
-};
-
-function getPoke(pokeUrl) {
-  $.ajax({
-    url: pokeUrl,
-    method: "GET"
-  }).then(function(response) {
-
-    $("#pokeName-text").text(response.name.toUpperCase());
-
-    var capitalizeType = response.types[0].type.name.charAt(0).toUpperCase() + response.types[0].type.name.slice(1);
-
-    var pokeDetail = 
-    {"Pokedex Number": response.id,
-    "Type": capitalizeType, 
-    "Weight": response.weight/10 + " kg", 
-    "Height": response.height*10 + " cm",
-    };
-
-    $.each(pokeDetail, function(key, value) {
-      var type = $("<li>");
-      type.addClass("list-group-item");
-      type.text(key + ": " + value);
-
-      $("#detail-text").append(type);
-    });
-    
-    for(var i=0; i<4; i++) {
-      var list = $("<li>");
-      list.addClass("list-group-item");
-      list.text(response.stats[i].stat.name + ": " + response.stats[i].base_stat);
-
-      $("#stat-text").append(list);
-    }
-  });
-};
-
+}
 
 $(document).ready(function() {
-
   //Adding click function to all the elements with "topic-btn" class
-$(document).on("click", ".topic-btn", displayTopicGif);
+  $(document).on("click", ".topic-btn", displayTopicGif);
 
-// Show buttons
-renderButtons();
-
+  // Show buttons
+  renderButtons();
 });
-

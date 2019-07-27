@@ -34,3 +34,6 @@
   background-size: 200%;
 }
 
+.pointer {
+  cursor: pointer;
+}

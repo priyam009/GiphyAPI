@@ -11,8 +11,8 @@ function renderButtons() {
     displayButton.attr("data-name", topics[index]);
     displayButton.text(topics[index]);
     $("#add-button").append(displayButton);
-  }
-}
+  };
+};
 
 //Get value from the input field
 $("#submit-button").on("click", function(event) {
@@ -28,9 +28,6 @@ $("#submit-button").on("click", function(event) {
 
   renderButtons();
 });
-
-//Show buttons
-renderButtons();
 
 //Show Gifs
 function displayTopicGif() {
@@ -65,13 +62,10 @@ function getURL(gifTopic, gifOffset, gifLimit) {
 
   var pokeUrl = "https://pokeapi.co/api/v2/pokemon/" + gifTopic;
 
-  // getPoke(pokeUrl);
-
-  getPoke(pokeUrl, gifUrl)
-  
-
+  getPoke(pokeUrl, gifUrl);
 };
 
+//Error message when pokemon doesnot exist
 function errorPoki() {
   $("#detail-text").empty();
   $("#stat-text").empty();

@@ -9,7 +9,7 @@ function renderButtons() {
     var displayButton = $("<button>");
     displayButton.addClass("topic-btn mr-2 mb-2 btn btn-dark");
     displayButton.attr("data-name", topics[index]);
-    displayButton.text(topics[index]);
+    displayButton.text(topics[index].toUpperCase());
     $("#add-button").append(displayButton);
   };
 };

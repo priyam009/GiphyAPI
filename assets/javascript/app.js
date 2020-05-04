@@ -24,7 +24,7 @@ $("#submit-button").on("click", function(event) {
 
   $(".topic-form").trigger("reset");
 
-  topics.push(getValue.toLowerCase());
+  topics.push(getValue);
 
   renderButtons();
 });

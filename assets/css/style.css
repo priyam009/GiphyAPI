@@ -37,3 +37,10 @@
 .pointer {
   cursor: pointer;
 }
+
+.topic-btn {
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  min-width: 25%;
+  text-align: left;
+}

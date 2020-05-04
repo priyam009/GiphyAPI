@@ -11,8 +11,8 @@ function renderButtons() {
     displayButton.attr("data-name", topics[index]);
     displayButton.text(topics[index].toUpperCase());
     $("#add-button").append(displayButton);
-  };
-};
+  }
+}
 
 //Get value from the input field
 $("#submit-button").on("click", function(event) {
@@ -34,6 +34,10 @@ function displayTopicGif() {
   var gifTopic = $(this).attr("data-name");
   var gifOffset = 0;
   var gifLimit = 15;
+
+  if (gifTopic) {
+    checkSelect(true);
+  }
 
   $("#previous-page").on("click", function() {
     if (gifOffset !== 0) {
@@ -63,7 +67,7 @@ function getURL(gifTopic, gifOffset, gifLimit) {
   var pokeUrl = "https://pokeapi.co/api/v2/pokemon/" + gifTopic;
 
   getPoke(pokeUrl, gifUrl);
-};
+}
 
 //Error message when pokemon doesnot exist
 function errorPoki() {
@@ -182,10 +186,19 @@ function getGif(gifUrl) {
   });
 }
 
+function checkSelect(checkName) {
+  if (checkName) {
+    $(".check-select").show();
+  } else {
+    $(".check-select").hide();
+  }
+}
+
 $(document).ready(function() {
   //Adding click function to all the elements with "topic-btn" class
   $(document).on("click", ".topic-btn", displayTopicGif);
 
   // Show buttons
   renderButtons();
+  checkSelect(false);
 });

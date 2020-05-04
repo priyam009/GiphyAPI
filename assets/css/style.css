@@ -49,3 +49,7 @@
   background-color: #ffa500;
   color: #121212;
 }
+
+button:focus {
+  outline: none !important;
+}

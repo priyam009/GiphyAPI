@@ -44,3 +44,8 @@
   min-width: 25%;
   text-align: left;
 }
+
+.active-pokemon {
+  background-color: #ffa500;
+  color: #121212;
+}

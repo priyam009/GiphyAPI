@@ -101,43 +101,46 @@
         <div id="add-button" class="m-2"></div>
       </div>
 
-      <!-- shows pokemon data -->
-      <div class="card container p-0 mt-2 mb-4 border">
-        <div class="card-header">
-          <h4 id="pokeName-text" class="mb-0 text-center"></h4>
-        </div>
-        <div class="row">
-          <div class="col-md-6 text-center">
-            <ul id="detail-text" class="card list-group list-group-flush">
-            </ul>
+      <div class="check-select">
+        <!-- shows pokemon data -->
+        <div class="card container p-0 mt-2 mb-4 border">
+          <div class="card-header">
+            <h4 id="pokeName-text" class="mb-0 text-center"></h4>
           </div>
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <ul
+                id="detail-text"
+                class="card list-group list-group-flush"
+              ></ul>
+            </div>
 
-          <div class="col-md-6 text-center">
-              <ul id="stat-text" class="card list-group list-group-flush">
-              </ul>
+            <div class="col-md-6 text-center">
+              <ul id="stat-text" class="card list-group list-group-flush"></ul>
+            </div>
           </div>
         </div>
+
+        <!-- page change buttons -->
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 p-0 text-center">
+              <button id="previous-page" class="btn btn-light ">
+                Previous Page
+              </button>
+            </div>
+            <div class="col-md-6 text-center text-light">
+              <h5 class="m-0">Click on images to play/pause gifs</h5>
+            </div>
+            <div id="next-page" class="col-md-3 p-0 text-center">
+              <button class="btn btn-light">Next Page</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- show pokemon gifs -->
+        <div id="add-gif" class="container mt-4 mb-4"></div>
       </div>
-
-      <!-- page change buttons -->
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 p-0 text-center">
-            <button id="previous-page" class="btn btn-light ">
-              Previous Page
-            </button>
-          </div>
-          <div class="col-md-6 text-center text-light">
-            <h5 class="m-0">Click on images to play/pause gifs</h5>
-          </div>
-          <div id="next-page" class="col-md-3 p-0 text-center">
-            <button class="btn btn-light">Next Page</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- show pokemon gifs -->
-      <div id="add-gif" class="container mt-4 mb-4"></div>
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

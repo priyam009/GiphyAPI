@@ -39,6 +39,8 @@ function displayTopicGif() {
     checkSelect(true);
   }
 
+  activePokemon(gifTopic);
+
   $("#previous-page").on("click", function() {
     if (gifOffset !== 0) {
       gifOffset -= gifLimit;
@@ -52,6 +54,19 @@ function displayTopicGif() {
   });
 
   getURL(gifTopic, gifOffset, gifLimit);
+}
+
+//Active Pokemon Button
+function activePokemon(name) {
+  $("#add-button button").each(function(index, element) {
+    $(element).removeClass("active-pokemon");
+    $(element).addClass("btn-dark");
+
+    if ($(element).attr("data-name") === name) {
+      $(element).addClass("active-pokemon");
+      $(element).removeClass("btn-dark");
+    }
+  });
 }
 
 //Return URL

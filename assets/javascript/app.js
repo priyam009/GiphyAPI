@@ -35,10 +35,6 @@ function displayTopicGif() {
   var gifOffset = 0;
   var gifLimit = 15;
 
-  if (gifTopic) {
-    checkSelect(true);
-  }
-
   activePokemon(gifTopic);
 
   $("#previous-page").on("click", function() {
@@ -59,14 +55,22 @@ function displayTopicGif() {
 //Active Pokemon Button
 function activePokemon(name) {
   $("#add-button button").each(function(index, element) {
+
+    //Remove all existing active highlight
     $(element).removeClass("active-pokemon");
     $(element).addClass("btn-dark");
 
+    //Check for new active highlight
     if ($(element).attr("data-name") === name) {
       $(element).addClass("active-pokemon");
       $(element).removeClass("btn-dark");
     }
   });
+  
+  //Check if a Pokemon is selected and send true it selected
+  if (name) {
+    checkSelect(true);
+  }
 }
 
 //Return URL
